@@ -1,0 +1,6 @@
+**/indy.build/*
+*DS_Store
+*.swp
+**/.settings/org.eclipse.core.resources.prefs
+getting-started.html
+Icon*
