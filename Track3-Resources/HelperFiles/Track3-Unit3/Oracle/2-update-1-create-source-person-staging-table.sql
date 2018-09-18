@@ -1,6 +1,6 @@
 /*
  * Create a staging table, SOURCE_PERSON,
- * in the staging schema SEMARCHY_STG.
+ * in the staging schema, SEMARCHY_STG.
  */
 CREATE TABLE SEMARCHY_STG.SOURCE_PERSON (
      B_CLASSNAME varchar(128)
