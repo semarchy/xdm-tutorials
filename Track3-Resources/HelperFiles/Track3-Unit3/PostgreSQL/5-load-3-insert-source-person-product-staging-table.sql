@@ -325,8 +325,8 @@ insert into semarchy_stg.source_person_product (b_classname, id, purchase_date, 
 
 insert into semarchy_stg.source_person_product (b_classname, id, purchase_date, registration_date, f_product, fp_person, fs_person) values ('PersonProduct', 'RENAUD4061LK_CRM1333591', to_date('05/23/2014', 'MM-DD-YYYY'), to_date('06/19/2014', 'MM-DD-YYYY'), 'RENAUD4061LK', 'CRM', '1333591');
 
-insert into semarchy_stg.source_person_product (b_classname, id, purchase_date, registration_date, f_product, fp_person, fs_person) values ('PersonProduct', 'STREAM4961WD_CRM1398304', to_date('01/23/2014', 'MM-DD-YYYY'), to_date('02/19/2014', 'MM-DD-YYYY'), 'STREAM4961WD', 'CRM', '1398304');
+insert into semarchy_stg.source_person_product (b_classname, id, purchase_date, registration_date, f_product, fp_person, fs_person) values ('PersonProduct', 'STREAM4961WD_CRM1398396', to_date('01/23/2014', 'MM-DD-YYYY'), to_date('02/19/2014', 'MM-DD-YYYY'), 'STREAM4961WD', 'CRM', '1398396');
 
-insert into semarchy_stg.source_person_product (b_classname, id, purchase_date, registration_date, f_product, fp_person, fs_person) values ('PersonProduct', 'CARBON6061WD_CRM1398304', to_date('10/23/2014', 'MM-DD-YYYY'), to_date('11/19/2014', 'MM-DD-YYYY'), 'CARBON6061WD', 'CRM', '1398304');
+insert into semarchy_stg.source_person_product (b_classname, id, purchase_date, registration_date, f_product, fp_person, fs_person) values ('PersonProduct', 'CARBON6061WD_CRM1398396', to_date('10/23/2014', 'MM-DD-YYYY'), to_date('11/19/2014', 'MM-DD-YYYY'), 'CARBON6061WD', 'CRM', '1398396');
 
 commit;
