@@ -13,4 +13,4 @@ begin
       ,'manual_etl_user'      /* Must exactly match the value used in get_new_loadid */
   );
 end;
-$$ language plpgsql;
+$$;
