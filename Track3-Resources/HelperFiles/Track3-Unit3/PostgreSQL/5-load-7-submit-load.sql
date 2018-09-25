@@ -18,4 +18,4 @@ begin
   );
   raise notice '%', v_batch_id;
 end;
-$$ language plpgsql;
+$$;

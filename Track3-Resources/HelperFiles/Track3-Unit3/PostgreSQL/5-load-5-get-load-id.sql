@@ -19,4 +19,4 @@ declare
     );
     raise notice '%', v_load_id;
 end;
-$$ language plpgsql;
+$$;
