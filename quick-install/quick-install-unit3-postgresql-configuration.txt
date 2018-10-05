@@ -1,0 +1,25 @@
+********************************************************************************
+** PostgreSQL pgAdmin configuration
+** Semarchy xDM Tutorials
+** Copy and paste the configuration to use when following the tutorial.
+** Copyright (c) 2018 Semarchy
+********************************************************************************
+
+------------------------------------------------
+Configure pg_hba.conf
+File path: /var/lib/pgsql96/data/pg_hba.conf
+Add line
+------------------------------------------------
+host all all 0.0.0.0/0 md5
+
+------------------------------------------------
+Configure pg_hba.conf
+File path: /var/lib/pgsql96/data/postgresql.conf
+Uncomment and replace localhost with *
+------------------------------------------------
+listen_addresses = '*'
+port = 5432
+
+
+
+******************************************************************************

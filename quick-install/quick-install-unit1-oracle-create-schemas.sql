@@ -1,0 +1,51 @@
+/*******************************************************************************
+** Oracle SQL Developer create schema scripts
+** Semarchy xDM Tutorials
+** Feel free to copy and paste the SQL DDL scripts and use them in the
+** tutorial.
+** Copyright (c) 2018 Semarchy
+*******************************************************************************/
+
+/******************************
+Configure Database Schemas
+******************************/
+CREATE USER       SEMARCHY_REPOSITORY
+IDENTIFIED BY     SEMARCHY_REPOSITORY
+DEFAULT TABLESPACE USERS
+TEMPORARY TABLESPACE TEMP;
+
+CREATE USER       SEMARCHY_PRODUCT_RETAIL_MDM
+IDENTIFIED BY     SEMARCHY_PRODUCT_RETAIL_MDM
+DEFAULT TABLESPACE USERS
+TEMPORARY TABLESPACE TEMP;
+
+CREATE USER       SEMARCHY_CUSTOMER_B2C_MDM
+IDENTIFIED BY     SEMARCHY_CUSTOMER_B2C_MDM
+DEFAULT TABLESPACE USERS
+TEMPORARY TABLESPACE TEMP;
+
+CREATE USER       SEMARCHY_EMP_TUTORIAL
+IDENTIFIED BY     SEMARCHY_EMP_TUTORIAL
+DEFAULT TABLESPACE USERS
+TEMPORARY TABLESPACE TEMP;
+
+CREATE USER       SEMARCHY_B2B_TUTORIAL
+IDENTIFIED BY     SEMARCHY_B2B_TUTORIAL
+DEFAULT TABLESPACE USERS
+TEMPORARY TABLESPACE TEMP;
+
+GRANT CONNECT, RESOURCE TO SEMARCHY_REPOSITORY
+, SEMARCHY_PRODUCT_RETAIL_MDM
+, SEMARCHY_CUSTOMER_B2C_MDM
+, SEMARCHY_EMP_TUTORIAL
+, SEMARCHY_B2B_TUTORIAL;
+
+
+-- The following command should be used for Oracle 12c and above
+GRANT UNLIMITED TABLESPACE TO SEMARCHY_REPOSITORY
+, SEMARCHY_PRODUCT_RETAIL_MDM
+, SEMARCHY_CUSTOMER_B2C_MDM
+, SEMARCHY_EMP_TUTORIAL
+, SEMARCHY_B2B_TUTORIAL;
+
+/******************************************************************************/
