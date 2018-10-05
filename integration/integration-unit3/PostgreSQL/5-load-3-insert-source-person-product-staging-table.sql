@@ -317,13 +317,13 @@ insert into semarchy_stg.source_person_product (b_classname, id, purchase_date, 
 
 insert into semarchy_stg.source_person_product (b_classname, id, purchase_date, registration_date, f_product, fp_person, fs_person) values ('PersonProduct', 'CARBON4861OK_CRM1316294', to_date('12/19/2016', 'MM-DD-YYYY'), to_date('03/20/2017', 'MM-DD-YYYY'), 'CARBON4861OK', 'CRM', '1316294');
 
+insert into semarchy_stg.source_person_product (b_classname, id, purchase_date, registration_date, f_product, fp_person, fs_person) values ('PersonProduct', 'RENAUD4061LK_CRM1333591', to_date('05/23/2014', 'MM-DD-YYYY'), to_date('06/19/2014', 'MM-DD-YYYY'), 'RENAUD4061LK', 'CRM', '1333591');
+
 insert into semarchy_stg.source_person_product (b_classname, id, purchase_date, registration_date, f_product, fp_person, fs_person) values ('PersonProduct', 'RENAUD4061LK_CRM1333590', to_date('01/19/2015', 'MM-DD-YYYY'), to_date('02/07/2015', 'MM-DD-YYYY'), 'RENAUD4061LK', 'CRM', '1333590');
 
 insert into semarchy_stg.source_person_product (b_classname, id, purchase_date, registration_date, f_product, fp_person, fs_person) values ('PersonProduct', 'FOXYEL4961UY_CRM1398320', to_date('02/13/2014', 'MM-DD-YYYY'), to_date('03/19/2014', 'MM-DD-YYYY'), 'FOXYEL4961UY', 'CRM', '1398320');
 
 insert into semarchy_stg.source_person_product (b_classname, id, purchase_date, registration_date, f_product, fp_person, fs_person) values ('PersonProduct', 'CARBON4861OK_CRM1398320', to_date('03/23/2014', 'MM-DD-YYYY'), to_date('05/19/2014', 'MM-DD-YYYY'), 'CARBON4861OK', 'CRM', '1398320');
-
-insert into semarchy_stg.source_person_product (b_classname, id, purchase_date, registration_date, f_product, fp_person, fs_person) values ('PersonProduct', 'RENAUD4061LK_CRM1333591', to_date('05/23/2014', 'MM-DD-YYYY'), to_date('06/19/2014', 'MM-DD-YYYY'), 'RENAUD4061LK', 'CRM', '1333591');
 
 insert into semarchy_stg.source_person_product (b_classname, id, purchase_date, registration_date, f_product, fp_person, fs_person) values ('PersonProduct', 'STREAM4961WD_CRM1398396', to_date('01/23/2014', 'MM-DD-YYYY'), to_date('02/19/2014', 'MM-DD-YYYY'), 'STREAM4961WD', 'CRM', '1398396');
 
