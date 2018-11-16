@@ -1,0 +1,31 @@
+{
+    "action":"CREATE_LOAD_AND_SUBMIT",
+    "programName":"UPDATE_DATA_REST_API",
+    "loadDescription":"Update customer information reported through call center",
+    "jobName":"INTEGRATE_ALL",
+    "persistOptions":{
+        "defaultPublisherId":"CRM",
+        "optionsPerEntity":{
+            "Person":{
+                "enrichers":[],
+                "validations":[
+                		{
+	                		"validationName": "InvalidEmail",
+							"validationType": "PLUGIN"
+                		}
+					],
+                "queryPotentialMatches":false
+            }
+        },
+        "missingIdBehavior":"GENERATE",
+        "persistMode":"NEVER"
+    },
+    "persistRecords":{
+        "Person":[
+            {
+                "SourceID":"1363595",
+                "SourceEmail":"nola@girvan.com"
+            }
+        ]
+    }
+}
