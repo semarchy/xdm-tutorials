@@ -11,7 +11,7 @@
                 "validations":[
                 		{
 	                		"validationName": "InvalidEmail",
-							"validationType": "PLUGIN"
+					"validationType": "PLUGIN"
                 		}
 					],
                 "queryPotentialMatches":false
