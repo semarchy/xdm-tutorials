@@ -4,7 +4,7 @@
     "loadDescription":"Update customer information reported through call center",
     "jobName":"INTEGRATE_ALL",
     "persistOptions":{
-        "defaultPublisherId":"CRM",
+        "defaultPublisherId":"MKT",
         "optionsPerEntity":{
             "Person":{
                 "enrichers":[],
@@ -23,7 +23,7 @@
     "persistRecords":{
         "Person":[
             {
-                "SourceID":"1363595",
+                "SourceID":"1368178",
                 "SourceEmail":"nola.girvan@gmail.co"
             }
         ]
