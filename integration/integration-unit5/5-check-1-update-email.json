@@ -18,7 +18,7 @@
             }
         },
         "missingIdBehavior":"GENERATE",
-        "persistMode":"NEVER"
+        "persistMode":"IF_NO_ERROR_OR_MATCH"
     },
     "persistRecords":{
         "Person":[
