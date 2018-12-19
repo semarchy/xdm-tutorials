@@ -1,0 +1,31 @@
+{
+    "action":"CREATE_LOAD_AND_SUBMIT",
+    "programName":"UPDATE_DATA_REST_API",
+    "loadDescription":"Update customer information reported through call center",
+    "jobName":"INTEGRATE_ALL",
+    "persistOptions":{
+        "defaultPublisherId":"MKT",
+        "optionsPerEntity":{
+            "Person":{
+                "enrichers":[],
+                "validations":[
+                		{
+	                		"validationName": "InvalidEmail",
+					"validationType": "PLUGIN"
+                		}
+					],
+                "queryPotentialMatches":false
+            }
+        },
+        "missingIdBehavior":"GENERATE",
+        "persistMode":"IF_NO_ERROR_OR_MATCH"
+    },
+    "persistRecords":{
+        "Person":[
+            {
+                "SourceID":"1368178",
+                "SourceEmail":"nola.girvan@gmail.com"
+            }
+        ]
+    }
+}
