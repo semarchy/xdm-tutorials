@@ -1,9 +1,8 @@
 /*******************************************************************************
 ** Oracle SQL Developer create schema scripts
 ** Semarchy xDM Tutorials
-** Feel free to copy and paste the SQL DDL scripts and use them in the
-** tutorial.
-** Copyright (c) 2018 Semarchy
+** Copy and paste the SQL DDL scripts and use them in the tutorial.
+** Copyright (c) 2019 Semarchy
 *******************************************************************************/
 
 /******************************
@@ -47,5 +46,15 @@ GRANT UNLIMITED TABLESPACE TO SEMARCHY_REPOSITORY
 , SEMARCHY_CUSTOMER_B2C_MDM
 , SEMARCHY_EMP_TUTORIAL
 , SEMARCHY_B2B_TUTORIAL;
+
+
+/* Cleanup scripts to start fresh */
+/*
+  DROP USER SEMARCHY_REPOSITORY CASCADE;
+  DROP USER SEMARCHY_PRODUCT_RETAIL_MDM CASCADE;
+  DROP USER SEMARCHY_CUSTOMER_B2C_MDM CASCADE;
+  DROP USER SEMARCHY_EMP_TUTORIAL CASCADE;
+  DROP USER SEMARCHY_B2B_TUTORIAL CASCADE;
+*/
 
 /******************************************************************************/

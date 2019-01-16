@@ -2,7 +2,7 @@
 ** PostgreSQL pgAdmin configuration
 ** Semarchy xDM Tutorials
 ** Copy and paste the configuration to use when following the tutorial.
-** Copyright (c) 2018 Semarchy
+** Copyright (c) 2019 Semarchy
 ********************************************************************************
 
 ------------------------------------------------
