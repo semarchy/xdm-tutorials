@@ -1,0 +1,16 @@
+********************************************************************************
+** REST API Query Data
+** Semarchy xDM Tutorials
+** Modify this GET request by substituting the host and port. Then run the
+** request to query data in the Customer B2C Demo Application.
+** Copyright (c) 2018 Semarchy
+********************************************************************************
+
+-----------------------
+Query Multiple Records
+-----------------------
+http://<host>:<port>/semarchy/api/rest/query/CustomerB2CDemo/Person/SD
+http://<host>:<port>/semarchy/api/rest/query/CustomerB2CDemo/Person/MI
+http://<host>:<port>/semarchy/api/rest/query/CustomerB2CDemo/Person/GD
+
+********************************************************************************
