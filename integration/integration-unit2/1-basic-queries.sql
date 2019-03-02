@@ -3,7 +3,7 @@
  * Semarchy xDM Tutorials
  * Run these select statements to query data
  * in the Customer B2C Demo Application.
- * Copyright (c) 2018 Semarchy
+ * Copyright (c) 2019 Semarchy
  */
 
 /*

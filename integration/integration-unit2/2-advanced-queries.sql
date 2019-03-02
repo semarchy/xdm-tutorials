@@ -3,11 +3,11 @@
  * Semarchy xDM Tutorials
  * Run these select statements to query data
  * in the Customer B2C Demo Application.
- * Copyright (c) 2018 Semarchy
+ * Copyright (c) 2019 Semarchy
  */
 
 /*
- * Query golden customers and their products
+ * Query 1: Golden customers and their products
  */
 SELECT
     pe.id,
@@ -21,7 +21,7 @@ FROM gd_person pe
 
 
 /*
- * Side-by-side comparison of a selected master record's duplicates and corresponding golden record
+ * Query 2: Side-by-side comparison of a selected master record's duplicates and corresponding golden record
  */
 SELECT
    md.b_pubid dup1_publisher,
