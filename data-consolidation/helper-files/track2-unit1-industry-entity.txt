@@ -1,0 +1,32 @@
+********************************************************************************
+** Industry entity helper file
+** Semarchy xDM Tutorials  
+** Copy and paste the SemQL Expressions and use them in the tutorial.
+** Copyright (c) 2018 Semarchy
+********************************************************************************
+
+----------------
+Entity: Industry
+----------------
+Name:         Industry
+Label:        Industry
+Plural Label: Industries
+Entity Type:  Basic
+
+Primary Key Name:     ID
+ID Generation:        Manual, String
+
+-----------------
+Entity Attributes
+-----------------
+ID               Defined when the entity is created
+Title            String(128)  -  Mandatory
+ShortDescription String(500)
+
+----------
+Publishers
+----------
+CRM
+ERP
+FINANCE
+WEB

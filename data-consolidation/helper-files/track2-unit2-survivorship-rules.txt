@@ -1,0 +1,62 @@
+********************************************************************************
+** Survivorship Rules helper file
+** Semarchy xDM Tutorials  
+** Copy and paste the SemQL Expressions and use them in the tutorial.
+** Copyright (c) 2018 Semarchy
+********************************************************************************
+
+============
+Survivorship
+============
+
+------------------
+IdSurvivorshipRule
+------------------
+[unmodified from default]
+
+-----------
+DefaultRule
+-----------
+Preferred Publisher
+  FINANCE
+  ERP
+  WEB
+  CRM
+Ranking Expression: UpdateDate DESC
+Override Strategy:  Override - until next user change
+
+-------
+Address
+-------
+CASE 
+  WHEN Country  = 'US' AND PublisherID  = 'ERP' THEN 1
+  WHEN Country  = 'US' AND PublisherID != 'ERP' THEN 2
+  WHEN Country != 'US' AND PublisherID  = 'WEB' THEN 1
+  WHEN Country != 'US' AND PublisherID != 'WEB' THEN 2
+  ELSE 3
+END,
+CASE 
+  WHEN PublisherID = 'FINANCE' THEN 1
+  WHEN PublisherID = 'CRM' THEN 2
+  ELSE 3
+END,
+UpdateDate DESC
+
+Override Strategy:  Override - until consolidated value changes
+
+
+------------
+FinanceOwned
+------------
+CompanyName
+Website
+Region
+Industry
+
+Preferred Publisher
+  FINANCE
+  WEB
+  ERP
+  CRM
+
+Override - until consolidated value changes

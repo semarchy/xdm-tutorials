@@ -1,0 +1,19 @@
+********************************************************************************
+** Business Views helper file
+** Semarchy xDM Tutorials  
+** Copy and paste the SemQL Expressions and use them in the tutorial.
+** Copyright (c) 2018 Semarchy
+********************************************************************************
+
+Duplicate the business view "Company"
+Edit the new business view:
+  Name:        MergesToConfirm
+  Root Filter: MastersCount > 1 AND ConfirmationStatus != 'CONFIRMED'
+
+Duplicate the business view "Company"
+Edit the new business view:
+  Name:        SuggestionsToReview
+  Root Filter: HasSuggestedMerge = '1' AND ConfirmationStatus != 'CONFIRMED'
+
+
+

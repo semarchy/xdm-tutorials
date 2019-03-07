@@ -1,0 +1,58 @@
+********************************************************************************
+** Match Rules helper file
+** Semarchy xDM Tutorials  
+** Copy and paste the SemQL Expressions and use them in the tutorial.
+** Copyright (c) 2018 Semarchy
+********************************************************************************
+
+===========
+Match Rules
+===========
+
+------------
+PerfectMatch
+------------
+/* Already good */
+
+--------------
+NormalizedName
+--------------
+Documentation: 
+Match on NormalizedName within a country where PostalCode does not conflict
+
+MatchCondition:
+
+Record1.NormalizedName = Record2.NormalizedName 
+AND ( 
+  Record1.PostalCode = Record2.PostalCode
+  OR Record1.PostalCode IS NULL OR Record2.PostalCode IS NULL
+)
+AND Record1.Country = Record2.Country
+
+Match Score: 94
+
+------------
+PhoneticName
+------------
+Documentation:
+Match on PhoneticName within a country where PostalCode does not conflict
+
+MatchCondition:
+
+Record1.PhoneticName = Record2.PhoneticName 
+AND ( 
+  Record1.PostalCode = Record2.PostalCode
+  OR Record1.PostalCode IS NULL OR Record2.PostalCode IS NULL
+)
+AND Record1.Country = Record2.Country
+
+Match Score: 88
+
+=======
+Matcher
+=======
+Merge Policy:  85 for all thresholds
+Exception:    100 for Merge confirmed golden records previously split by the user
+              (If a data steward splits a record, then it stays split.)
+
+Auto-confirm:  91

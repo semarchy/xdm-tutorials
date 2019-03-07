@@ -1,0 +1,80 @@
+********************************************************************************
+** Standardize Company Names helper file
+** Semarchy xDM Tutorials  
+** Copy and paste the SemQL Expressions and use them in the tutorial.
+** Copyright (c) 2018 Semarchy
+********************************************************************************
+
+----------
+Attributes
+----------
+Company
+  NormalizedName
+  PhoneticName
+
+--------------------------------------------------
+Enricher to standardize first version (PostgreSQL)
+--------------------------------------------------
+Name:       RemovePunctuation
+Expression: REGEXP_REPLACE( CompanyName, '[[:punct:]]', ' ', 'g' )
+
+
+--------------------------------------------------
+Enricher to standardize first version (Oracle)
+--------------------------------------------------
+Name:       RemovePunctuation
+Expression: REGEXP_REPLACE( CompanyName, '[[:punct:]]', ' ' )
+
+
+-----------------------------------------------------
+Enricher to standardize improved version (PostgreSQL)
+-----------------------------------------------------
+Name:       RemovePunctuation
+Expression: 
+REGEXP_REPLACE( 
+	REPLACE( UPPER(CompanyName), '&', ' AND ' ),
+	'[[:punct:][:blank:]]+', /* find one or more spaces or punctuation marks */
+	' ',                     /* replace with a single space */
+	'g'                      /* replace all occurences */
+)
+
+-------------------------------------------------
+Enricher to standardize improved version (Oracle)
+-------------------------------------------------
+Name:       RemovePunctuation
+Expression: 
+REGEXP_REPLACE( 
+	REPLACE( UPPER(CompanyName), '&', ' AND ' ),
+	'[[:punct:][:blank:]]+', /* find one or more spaces or punctuation marks */
+	' '                      /* replace with a single space */
+)
+
+
+-----------------------
+Enricher to phoneticize
+-----------------------
+Name:           PhoneticizeName
+Plug-in:        Semarchy Text Enricher - com.semarchy.engine.plugins.convergence.text
+Transformation: DOUBLEMETAPHONE 12 TRUE
+Input Text:     CompanyName
+Outputs:        Transformed Text -> PhoneticName
+
+
+-------------------------------------------
+Enricher to strip out business entity types
+-------------------------------------------
+Name:       RemoveBusinessEntityType
+Expression: 
+
+REGEXP_REPLACE (
+    NormalizedName,
+    '[[:blank:]]+(' /* find spaces preceding the business entity type */
+     || 'COMPANY|COMPANY[[:blank:]]*INC|CORPORATION|CORP|AND[[:blank:]]*CO|CO|CO[[:blank:]]*INC|INCORPORATED|INC|LIMITED|LTD|ASSOCIATION|ASSOC|' /* Anglo entities */
+     || 'L[[:blank:]]*P|L[[:blank:]]*L[[:blank:]]*P|L[[:blank:]]*L[[:blank:]]*L[[:blank:]]*P|L[[:blank:]]*L[[:blank:]]*C|P[[:blank:]]*L[[:blank:]]*C|' /* More Anglo entities */
+     || 'S[[:blank:]]*A[[:blank:]]*R[[:blank:]]*L|S[[:blank:]]*A[[:blank:]]*S|' /* French entities */
+     || 'A[[:blank:]]*G|G[[:blank:]]*M[[:blank:]]*B[[:blank:]]*H|'              /* German entities */
+     || 'S[[:blank:]]*A|S[[:blank:]]*L|'                                        /* Spanish entities */
+     || 'K[[:blank:]]*K|G[[:blank:]]*K|'                                        /* Japanese entities */
+     || ')[[:blank:]]*$',
+    ''  /* replace the business entity type with an empty string */
+)
