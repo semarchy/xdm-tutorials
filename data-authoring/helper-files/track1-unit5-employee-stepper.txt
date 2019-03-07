@@ -1,0 +1,47 @@
+﻿********************************************************************************
+** Employee Stepper helper file
+** Semarchy xDM Tutorials  
+** Copy and paste the SemQL Expressions and use them in the tutorial.
+** Copyright (c) 2018 Semarchy
+********************************************************************************
+
+====================
+1. STEPPER STRUCTURE
+====================
+
++ (Root Collection)  Employees          -> EmployeeCollection
+- 1. (Form Step)      ContactInfo       -> EmployeeForm > ContactInfo tab
+- 2. (Form Step)      HR                -> EmployeeForm > HR tab
+- 3. (Collection)     EducationRecords  -> EducationCollection
+--- 1. (Form Step)      Education       -> EducationForm > Education tab
+
+=====================
+2. STEPPER PROPERTIES
+=====================
+-----------------------------------------------
+Employees > ContactInfo
+-----------------------------------------------
+> Name and Definition > Enable Finish               false
+
+-----------------------------------------------
+Employees > HR
+-----------------------------------------------
+> Reference Selection > FDN_Manager > Picker Filter (semql)
+(Record.FID_Department is null)
+OR (Record.Department.ID = Referenced.FID_Department)
+
+-----------------------------------------------
+Employees > EducationRecords
+-----------------------------------------------
+> Name and Definition > Label                       Education
+> Name and Definition > Name                        EducationRecords
+> On Parent Create    > Skip To Child Creation...   true
+
+-----------------------------------------------
+Employees > EducationRecords > Education
+-----------------------------------------------
+> Display             > Form Tab                    EducationForm > Education
+> Form Validations    > (all validations)           On Data Change           
+> Step Transition Vali> (all validations)           Block
+
+********************************************************************************

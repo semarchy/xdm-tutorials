@@ -1,0 +1,32 @@
+********************************************************************************
+** Display cards helper file
+** Semarchy xDM Tutorials  
+** Copy and paste the SemQL Expressions and use them in the tutorial.
+** Copyright (c) 2018 Semarchy
+********************************************************************************
+
+-------------------------
+Department Display Card
+-------------------------
+> Primary Text Expression   (SemQL)
+Name
+> Secondary Text Expression (SemQL)
+Description
+
+-------------------------
+Education Display Card
+-------------------------
+> Primary Text Expression   (SemQL)
+DegreeReceived || ' (' || Country || ')'
+> Secondary Text Expression (SemQL)
+to_char(coalesce(ToDate, FromDate), 'YYYY') || ' - ' || School
+
+-------------------------
+Employee Display Card
+-------------------------
+> Primary Text Expression   (SemQL)
+FirstName || ' ' || LastName
+> Secondary Text Expression (SemQL)
+Title || ' (' || Subsidiary || ')'
+
+********************************************************************************
