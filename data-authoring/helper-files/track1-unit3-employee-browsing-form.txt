@@ -135,7 +135,7 @@ EndDate is not null
 ID
 -------------------------
 > Value expression          (SemQL)
-LPAD(SEM_TO_CHAR(ID), 6 , '0')
+lpad(sem_to_char(ID), 6 , '0')
 > Name  > Use Cust. Label   true
 > Name  > Label             Employee ID
 > Name  > Documentation     Padded with zeros for easier interpretation...

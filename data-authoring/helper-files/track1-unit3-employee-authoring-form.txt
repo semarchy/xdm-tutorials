@@ -1,6 +1,6 @@
 ********************************************************************************
 ** Employee Authoring Form helper file
-** Semarchy xDM Tutorials  
+** Semarchy xDM Tutorials
 ** Copy and paste the SemQL Expressions and use them in the tutorial.
 ** Copyright (c) 2018 Semarchy
 ********************************************************************************
@@ -88,22 +88,22 @@ EnrichedPhone_Country
 EnrichedPhone.Country
 > Name  > Label             Code
 > Label > Floating Label    true
-		 
+
 -------------------------
 PhoneStatus
 -------------------------
 > Value expression          (SemQL)
-case 
+case
   when Phone is null then 'No phone.'
-  when Phone is not null 
+  when Phone is not null
     and EnrichedPhone.IsPossible is null then 'Phone not verified yet.'
   else
-    EnrichedPhone.EnrichedPhone || 
-    case when EnrichedPhone.Country is not null 
+    EnrichedPhone.EnrichedPhone ||
+    case when EnrichedPhone.Country is not null
       then ' • ' || EnrichedPhone.Country  end ||
-    case when EnrichedPhone.LineType is not null 
+    case when EnrichedPhone.LineType is not null
       then ' • ' || Initcap(Replace(EnrichedPhone.LineType, '_', ' ')) end ||
-    case when EnrichedPhone.Location is not null 
+    case when EnrichedPhone.Location is not null
       then ' • ' || EnrichedPhone.Location end
 end
 > Label > Label Visible     false
@@ -122,7 +122,7 @@ Email
 ID
 -------------------------
 > Value expression          (SemQL)
-lpad(ID, 6, '0')
+lpad(sem_to_char(ID), 6 , '0')
 > Name  > Label             Employee ID
 
 -------------------------
