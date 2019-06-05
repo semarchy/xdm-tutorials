@@ -32,7 +32,7 @@
 		maxActive="8" maxIdle="8" minIdle="0" maxWait="15000" initialSize="1"
 		defaultAutoCommit="false" rollbackOnReturn="true" validationQuery="select 1 from dual"
 		testOnBorrow="true" timeBetweenEvictionRunsMillis="45000"
-		validationInterval="60000" />
+		connectionProperties="oracle.jdbc.J2EE13Compliant=true" validationInterval="60000" />
 
 
 	<!-- Configure the datasources to access the data locations below here -->
@@ -45,7 +45,7 @@
 		maxActive="8" maxIdle="8" minIdle="0" maxWait="15000" initialSize="1"
 		defaultAutoCommit="false" rollbackOnReturn="true" validationQuery="select 1 from dual"
 		testOnBorrow="true" timeBetweenEvictionRunsMillis="45000"
-		validationInterval="60000" />
+		connectionProperties="oracle.jdbc.J2EE13Compliant=true" validationInterval="60000" />
 
 	<Resource name="jdbc/SEMARCHY_CUSTOMER_B2C_MDM" auth="Container"
 		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" type="javax.sql.DataSource"
@@ -54,7 +54,7 @@
 		maxActive="8" maxIdle="8" minIdle="0" maxWait="15000" initialSize="1"
 		defaultAutoCommit="false" rollbackOnReturn="true" validationQuery="select 1 from dual"
 		testOnBorrow="true" timeBetweenEvictionRunsMillis="45000"
-		validationInterval="60000" />
+		connectionProperties="oracle.jdbc.J2EE13Compliant=true" validationInterval="60000" />
 
 	<Resource name="jdbc/EMPLOYEE_TUTORIAL" auth="Container"
 		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" type="javax.sql.DataSource"
@@ -63,7 +63,7 @@
 		maxActive="8" maxIdle="8" minIdle="0" maxWait="15000" initialSize="1"
 		defaultAutoCommit="false" rollbackOnReturn="true" validationQuery="select 1 from dual"
 		testOnBorrow="true" timeBetweenEvictionRunsMillis="45000"
-		validationInterval="60000" />
+		connectionProperties="oracle.jdbc.J2EE13Compliant=true" validationInterval="60000" />
 
 	<Resource name="jdbc/B2B_TUTORIAL" auth="Container"
 		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" type="javax.sql.DataSource"
@@ -72,6 +72,6 @@
 		maxActive="8" maxIdle="8" minIdle="0" maxWait="15000" initialSize="1"
 		defaultAutoCommit="false" rollbackOnReturn="true" validationQuery="select 1 from dual"
 		testOnBorrow="true" timeBetweenEvictionRunsMillis="45000"
-		validationInterval="60000" />
+		connectionProperties="oracle.jdbc.J2EE13Compliant=true" validationInterval="60000" />
 
 </Context>
