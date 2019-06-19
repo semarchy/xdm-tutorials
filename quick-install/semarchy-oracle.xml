@@ -47,6 +47,7 @@
 		testOnBorrow="true" timeBetweenEvictionRunsMillis="45000"
 		connectionProperties="oracle.jdbc.J2EE13Compliant=true" validationInterval="60000" />
 
+	<!-- Getting Started Customer B2C Demo Data Location -->
 	<Resource name="jdbc/SEMARCHY_CUSTOMER_B2C_MDM" auth="Container"
 		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" type="javax.sql.DataSource"
 		driverClassName="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@localhost:1521:orcl"
@@ -56,6 +57,7 @@
 		testOnBorrow="true" timeBetweenEvictionRunsMillis="45000"
 		connectionProperties="oracle.jdbc.J2EE13Compliant=true" validationInterval="60000" />
 
+	<!-- Employee HR Tutorial - Track 1 -  Data Location -->
 	<Resource name="jdbc/EMPLOYEE_TUTORIAL" auth="Container"
 		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" type="javax.sql.DataSource"
 		driverClassName="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@localhost:1521:orcl"
@@ -65,6 +67,7 @@
 		testOnBorrow="true" timeBetweenEvictionRunsMillis="45000"
 		connectionProperties="oracle.jdbc.J2EE13Compliant=true" validationInterval="60000" />
 
+	<!-- B2B Tutorial - Track 2 -  Data Location -->
 	<Resource name="jdbc/B2B_TUTORIAL" auth="Container"
 		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" type="javax.sql.DataSource"
 		driverClassName="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@localhost:1521:orcl"

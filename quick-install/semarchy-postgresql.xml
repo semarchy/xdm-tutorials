@@ -47,6 +47,7 @@
 		testOnBorrow="true" timeBetweenEvictionRunsMillis="45000"
 		validationInterval="60000" />
 
+	<!-- Getting Started Customer B2C Demo Data Location -->
 	<Resource name="jdbc/SEMARCHY_CUSTOMER_B2C_MDM" auth="Container"
 		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" type="javax.sql.DataSource"
 		driverClassName="org.postgresql.Driver" url="jdbc:postgresql://localhost:5432/postgres"
@@ -56,6 +57,7 @@
 		testOnBorrow="true" timeBetweenEvictionRunsMillis="45000"
 		validationInterval="60000" />
 
+	<!-- Employee HR Tutorial - Track 1 -  Data Location -->
 	<Resource name="jdbc/EMPLOYEE_TUTORIAL" auth="Container"
 		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" type="javax.sql.DataSource"
 		driverClassName="org.postgresql.Driver" url="jdbc:postgresql://localhost:5432/postgres"
@@ -65,6 +67,7 @@
 		testOnBorrow="true" timeBetweenEvictionRunsMillis="45000"
 		validationInterval="60000"/>
 
+	<!-- B2B Tutorial - Track 2 -  Data Location -->
 	<Resource name="jdbc/B2B_TUTORIAL" auth="Container"
 		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" type="javax.sql.DataSource"
 		driverClassName="org.postgresql.Driver" url="jdbc:postgresql://localhost:5432/postgres"
@@ -73,5 +76,15 @@
 		defaultAutoCommit="false" rollbackOnReturn="true" validationQuery="select 1"
 		testOnBorrow="true" timeBetweenEvictionRunsMillis="45000"
 		validationInterval="60000"/>
+
+	<!-- Staging Data Location -->
+	<!-- <Resource name="jdbc/SEMARCHY_STG" auth="Container"
+		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" type="javax.sql.DataSource"
+		driverClassName="org.postgresql.Driver" url="jdbc:postgresql://localhost:5432/postgres"
+		username="semarchy_stg" password="semarchy_stg"
+		maxActive="8" maxIdle="8" minIdle="0" maxWait="15000" initialSize="1"
+		defaultAutoCommit="false" rollbackOnReturn="true" validationQuery="select 1"
+		testOnBorrow="true" timeBetweenEvictionRunsMillis="45000"
+		validationInterval="60000"/> -->
 
 </Context>
