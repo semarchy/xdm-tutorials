@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Datasource configuration template for Tomcat -->
+<Context>
+	<!-- disable tomcat session persistence -->
+	<Manager pathname="" />
+	<Valve className="org.apache.catalina.authenticator.FormAuthenticator" landingPage="/" />
+	<!-- increase caching to remove multiple warning at tomcat startup -->
+	<Resources cachingAllowed="true" cacheMaxSize="102400" />
+
+	<!-- Semarchy xDM Configuration -->
+
+	<!-- Enable Mixed SSO/Form Login support -->
+	<!-- Waffle Active DirectorySSO + Form -->
+	<!-- <Parameter name="SingleSignOn" value="action=j_negotiate_check" override="true" /> -->
+
+	<!-- This parameter defines the value of X-Frame-Options HTTP response header.
+		This header allows or disallows rendering  Semarchy xDM embedded in
+		a frame or iframe. This parameter is used to prevent clickjacking attacks,
+		by ensuring that the content is not embedded into other sites.
+		The supported values are:
+		* NO_HEADER (removes completely the header)
+		* DENY (deny embedding)
+		* SAMEORIGIN (allow embedding if the embedding page is of same origin)
+		See https://developer.mozilla.org/en-US/docs/HTTP/X-Frame-Options for more information. -->
+	<!-- <Parameter name="xframeoptions" value="SAMEORIGIN" override="true" /> -->
+
+	<!--  Semarchy xDM repository datasource must be named "jdbc/SEMARCHY_REPOSITORY" -->
+  <Resource name="jdbc/SEMARCHY_REPOSITORY" auth="Container"
+    factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" type="javax.sql.DataSource"
+    driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    url="jdbc:sqlserver://localhost:1433;databaseName=SEMARCHY_REPOSITORY;"
+    username="SEMARCHY_REPOSITORY" password="SEMARCHY_REPOSITORY"
+    maxActive="8" maxIdle="8" minIdle="0" maxWait="15000" initialSize="1"
+    defaultAutoCommit="false" rollbackOnReturn="true" validationQuery="select 1"
+    testOnBorrow="true" timeBetweenEvictionRunsMillis="45000"
+    validationInterval="60000" />
+
+
+	<!-- Configure the datasources to access the data locations below here -->
+
+	<!-- Getting Started Retail Product Demo Data Location -->
+	<Resource name="jdbc/SEMARCHY_PRODUCT_RETAIL_MDM" auth="Container"
+		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" type="javax.sql.DataSource"
+    driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    url="jdbc:sqlserver://localhost:1433;databaseName=SEMARCHY_PRODUCT_RETAIL_MDM;"
+    username="SEMARCHY_PRODUCT_RETAIL_MDM" password="SEMARCHY_PRODUCT_RETAIL_MDM"
+    maxActive="8" maxIdle="8" minIdle="0" maxWait="15000" initialSize="1"
+    defaultAutoCommit="false" rollbackOnReturn="true" validationQuery="select 1"
+    testOnBorrow="true" timeBetweenEvictionRunsMillis="45000"
+    validationInterval="60000" />
+
+	<!-- Getting Started Customer B2C Demo Data Location -->
+		<Resource name="jdbc/SEMARCHY_CUSTOMER_B2C_MDM" auth="Container"
+		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" type="javax.sql.DataSource"
+    driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    url="jdbc:sqlserver://localhost:1433;databaseName=SEMARCHY_CUSTOMER_B2C_MDM;"
+    username="SEMARCHY_CUSTOMER_B2C_MDM" password="SEMARCHY_CUSTOMER_B2C_MDM"
+    maxActive="8" maxIdle="8" minIdle="0" maxWait="15000" initialSize="1"
+    defaultAutoCommit="false" rollbackOnReturn="true" validationQuery="select 1"
+    testOnBorrow="true" timeBetweenEvictionRunsMillis="45000"
+    validationInterval="60000" />
+
+	<!-- Employee HR Tutorial - Track 1 -  Data Location -->
+	<Resource name="jdbc/EMPLOYEE_TUTORIAL" auth="Container"
+		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" type="javax.sql.DataSource"
+    driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    url="jdbc:sqlserver://localhost:1433;databaseName=SEMARCHY_EMP_TUTORIAL;"
+    username="SEMARCHY_EMP_TUTORIAL" password="SEMARCHY_EMP_TUTORIAL"
+    maxActive="8" maxIdle="8" minIdle="0" maxWait="15000" initialSize="1"
+    defaultAutoCommit="false" rollbackOnReturn="true" validationQuery="select 1"
+    testOnBorrow="true" timeBetweenEvictionRunsMillis="45000"
+    validationInterval="60000" />
+
+	<!-- B2B Tutorial - Track 2 -  Data Location -->
+	<Resource name="jdbc/B2B_TUTORIAL" auth="Container"
+		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" type="javax.sql.DataSource"
+    driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    url="jdbc:sqlserver://localhost:1433;databaseName=SEMARCHY_B2B_TUTORIAL;"
+    username="SEMARCHY_B2B_TUTORIAL" password="SEMARCHY_B2B_TUTORIAL"
+    maxActive="8" maxIdle="8" minIdle="0" maxWait="15000" initialSize="1"
+    defaultAutoCommit="false" rollbackOnReturn="true" validationQuery="select 1"
+    testOnBorrow="true" timeBetweenEvictionRunsMillis="45000"
+    validationInterval="60000" />
+
+  <!-- Staging Data Location -->
+	<!-- <Resource name="jdbc/SEMARCHY_STG" auth="Container"
+		factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" type="javax.sql.DataSource"
+		driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+		url="jdbc:sqlserver://localhost:1433;databaseName=SEMARCHY_STG;"
+		username="SEMARCHY_STG" password="SEMARCHY_STG"
+		maxActive="8" maxIdle="8" minIdle="0" maxWait="15000" initialSize="1"
+		defaultAutoCommit="false" rollbackOnReturn="true" validationQuery="select 1"
+		testOnBorrow="true" timeBetweenEvictionRunsMillis="45000"
+		validationInterval="60000"/> -->
+
+</Context>
