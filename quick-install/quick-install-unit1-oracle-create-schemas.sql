@@ -1,5 +1,5 @@
 /*******************************************************************************
-** Oracle SQL Developer create schema scripts
+** Oracle database create schema scripts
 ** Semarchy xDM Tutorials
 ** Copy and paste the SQL DDL scripts and use them in the tutorial.
 ** Copyright (c) 2019 Semarchy

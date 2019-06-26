@@ -1,5 +1,5 @@
 /*******************************************************************************
-** PostgreSQL pgAdmin create schema scripts
+** PostgreSQL database create schema scripts
 ** Semarchy xDM Tutorials
 ** Copy and paste the SQL DDL scripts and use them in the tutorial.
 ** Copyright (c) 2019 Semarchy
@@ -35,6 +35,9 @@ GRANT USAGE ON SCHEMA semarchy_emp_tutorial TO public;
 CREATE USER   semarchy_b2b_tutorial WITH PASSWORD 'semarchy_b2b_tutorial';
 CREATE SCHEMA semarchy_b2b_tutorial AUTHORIZATION semarchy_b2b_tutorial;
 GRANT USAGE ON SCHEMA semarchy_b2b_tutorial TO public;
+
+/* Give all users read access to all the tables (and views) in semarchy_repository */
+ALTER DEFAULT PRIVILEGES FOR USER semarchy_repository IN SCHEMA semarchy_repository GRANT SELECT ON TABLES TO public;
 
 /* Cleanup scripts to start fresh */
 /*
