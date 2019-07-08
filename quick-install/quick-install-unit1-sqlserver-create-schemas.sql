@@ -67,6 +67,10 @@ GO
 ALTER ROLE db_owner ADD MEMBER SEMARCHY_B2B_TUTORIAL
 GO
 
+/* Give SEMARCHY_CUSTOMER_B2C_MDM user read access to all the tables (and views) in semarchy_repository */
+GRANT SELECT ON SEMARCHY_REPOSITORY TO SEMARCHY_CUSTOMER_B2C_MDM;
+GO
+
 /* Cleanup scripts to start fresh */
 /*
   DROP DATABASE SEMARCHY_REPOSITORY
