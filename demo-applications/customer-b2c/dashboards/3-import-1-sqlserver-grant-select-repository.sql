@@ -3,4 +3,4 @@
  * Without the grants, the Integration Metrics Dashboards fail due to lack of privileges.
  * Run grant as the DBA user
  */
-GRANT SELECT ON SCHEMA :: SEMARCHY_REPOSITORY TO SEMARCHY_PRODUCT_RETAIL_MDM;
+GRANT SELECT ON SCHEMA :: SEMARCHY_REPOSITORY TO SEMARCHY_CUSTOMER_B2C_MDM;
