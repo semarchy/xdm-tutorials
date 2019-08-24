@@ -40,25 +40,20 @@ GRANT USAGE ON SCHEMA semarchy_b2b_tutorial TO public;
 ALTER DEFAULT PRIVILEGES FOR USER semarchy_repository IN SCHEMA semarchy_repository GRANT SELECT ON TABLES TO public;
 
 /* Cleanup scripts to start fresh */
-
-  DROP OWNED BY semarchy_repository;
-  DROP USER semarchy_repository;
+/*
   DROP SCHEMA semarchy_repository CASCADE;
+  DROP USER   semarchy_repository;
  
-  DROP OWNED BY semarchy_product_retail_mdm;
-  DROP USER semarchy_product_retail_mdm;
   DROP SCHEMA semarchy_product_retail_mdm CASCADE;
+  DROP USER   semarchy_product_retail_mdm;
  
-  DROP OWNED BY semarchy_customer_b2c_mdm;
-  DROP USER semarchy_customer_b2c_mdm;
   DROP SCHEMA semarchy_customer_b2c_mdm CASCADE;
+  DROP USER   semarchy_customer_b2c_mdm;
 
-  DROP OWNED BY semarchy_b2b_tutorial;
-  DROP USER semarchy_b2b_tutorial;
   DROP SCHEMA semarchy_b2b_tutorial CASCADE;
+  DROP USER   semarchy_b2b_tutorial;
 
-  DROP OWNED BY semarchy_emp_tutorial;
-  DROP USER semarchy_emp_tutorial;
   DROP SCHEMA semarchy_emp_tutorial CASCADE;
-
+  DROP USER   semarchy_emp_tutorial;
+*/
 /******************************************************************************/
