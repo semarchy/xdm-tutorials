@@ -47,7 +47,6 @@ GRANT UNLIMITED TABLESPACE TO SEMARCHY_REPOSITORY
 , SEMARCHY_EMP_TUTORIAL
 , SEMARCHY_B2B_TUTORIAL;
 
-/* Give all users read access to all the tables (and views) in semarchy_repository */
 
 
 /* Cleanup scripts to start fresh */
