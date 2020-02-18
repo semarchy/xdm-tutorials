@@ -2,7 +2,7 @@
 ** Oracle database create schema scripts
 ** Semarchy xDM Tutorials
 ** Copy and paste the SQL DDL scripts and use them in the tutorial.
-** Copyright (c) 2019 Semarchy
+** Copyright (c) 2020 Semarchy
 *******************************************************************************/
 
 /******************************
@@ -33,11 +33,17 @@ IDENTIFIED BY     SEMARCHY_B2B_TUTORIAL
 DEFAULT TABLESPACE USERS
 TEMPORARY TABLESPACE TEMP;
 
+CREATE USER       SEMARCHY_STG
+IDENTIFIED BY     SEMARCHY_STG
+DEFAULT TABLESPACE USERS
+TEMPORARY TABLESPACE TEMP;
+
 GRANT CONNECT, RESOURCE TO SEMARCHY_REPOSITORY
 , SEMARCHY_PRODUCT_RETAIL_MDM
 , SEMARCHY_CUSTOMER_B2C_MDM
 , SEMARCHY_EMP_TUTORIAL
-, SEMARCHY_B2B_TUTORIAL;
+, SEMARCHY_B2B_TUTORIAL
+, SEMARCHY_STG;
 
 
 -- The following command should be used for Oracle 12c and above
@@ -45,8 +51,8 @@ GRANT UNLIMITED TABLESPACE TO SEMARCHY_REPOSITORY
 , SEMARCHY_PRODUCT_RETAIL_MDM
 , SEMARCHY_CUSTOMER_B2C_MDM
 , SEMARCHY_EMP_TUTORIAL
-, SEMARCHY_B2B_TUTORIAL;
-
+, SEMARCHY_B2B_TUTORIAL
+, SEMARCHY_STG;
 
 
 /* Cleanup scripts to start fresh */
@@ -56,6 +62,7 @@ GRANT UNLIMITED TABLESPACE TO SEMARCHY_REPOSITORY
   DROP USER SEMARCHY_CUSTOMER_B2C_MDM CASCADE;
   DROP USER SEMARCHY_EMP_TUTORIAL CASCADE;
   DROP USER SEMARCHY_B2B_TUTORIAL CASCADE;
+  DROP USER SEMARCHY_STG CASCADE;
 */
 
 /******************************************************************************/

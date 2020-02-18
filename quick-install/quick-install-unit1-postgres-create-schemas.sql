@@ -2,7 +2,7 @@
 ** PostgreSQL database create schema scripts
 ** Semarchy xDM Tutorials
 ** Copy and paste the SQL DDL scripts and use them in the tutorial.
-** Copyright (c) 2019 Semarchy
+** Copyright (c) 2020 Semarchy
 *******************************************************************************/
 
 /******************************
@@ -36,6 +36,10 @@ CREATE USER   semarchy_b2b_tutorial WITH PASSWORD 'semarchy_b2b_tutorial';
 CREATE SCHEMA semarchy_b2b_tutorial AUTHORIZATION semarchy_b2b_tutorial;
 GRANT USAGE ON SCHEMA semarchy_b2b_tutorial TO public;
 
+CREATE USER   semarchy_stg WITH PASSWORD 'semarchy_stg';
+CREATE SCHEMA semarchy_stg AUTHORIZATION semarchy_stg;
+GRANT USAGE ON SCHEMA semarchy_stg TO public;
+
 /* Give all users read access to all the tables (and views) in semarchy_repository */
 ALTER DEFAULT PRIVILEGES FOR USER semarchy_repository IN SCHEMA semarchy_repository GRANT SELECT ON TABLES TO public;
 
@@ -49,11 +53,14 @@ ALTER DEFAULT PRIVILEGES FOR USER semarchy_repository IN SCHEMA semarchy_reposit
  
   DROP SCHEMA semarchy_customer_b2c_mdm CASCADE;
   DROP USER   semarchy_customer_b2c_mdm;
+  
+  DROP SCHEMA semarchy_emp_tutorial CASCADE;
+  DROP USER   semarchy_emp_tutorial;
 
   DROP SCHEMA semarchy_b2b_tutorial CASCADE;
   DROP USER   semarchy_b2b_tutorial;
 
-  DROP SCHEMA semarchy_emp_tutorial CASCADE;
-  DROP USER   semarchy_emp_tutorial;
+  DROP SCHEMA semarchy_stg CASCADE;
+  DROP USER   semarchy_stg;
 */
 /******************************************************************************/
