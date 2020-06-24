@@ -1,0 +1,26 @@
+/*
+ * For SQL Server users, the NormalizeAddress SemQL enricher
+ * does not work because the expression to populate NormalizedStreet
+ * contains the regexp_replace, which is unavailable in SQL Server
+ *
+ * Update the SemQL expression to use the following
+ * SQL Server-compatible patindex function.
+ */
+
+REPLACE(
+  REPLACE(
+    REPLACE(
+      REPLACE(
+        REPLACE(
+          REPLACE(
+            REPLACE(
+              UPPER(
+                REPLACE(Address.Street,
+                  SUBSTRING(Address.Street, PATINDEX('%[,\.\*]', Address.Street), 1), '')),
+              'SUITE', 'STE'),
+            'PARKWAY', 'PKWY'),
+          'DRIVE', 'DR'), '
+        STREET', 'ST'),
+      'BOULEVARD', 'BLVD'),
+    'AVENUE', 'AVE'),
+  'ROAD', 'RD')
