@@ -1,0 +1,167 @@
+********************************************************************************
+** Employee Authoring Form helper file
+** Semarchy xDM Tutorials
+** Copy and paste the SemQL Expressions and use them in the tutorial.
+** Copyright (c) 2018 Semarchy
+********************************************************************************
+
+=================
+1. FORM STRUCTURE
+=================
+
++ (FormTab) ContactInfo
+--+ (Container) Horizontal
+----+ (Container) Vertical
+------+ FirstName
+------+ LastName
+------+ Salutation
+------+ Subsidiary
+----+ (Container) Vertical
+------+ IsContractor
+------+ (Container) Horizontal
+--------+ Phone
+--------+ EnrichedPhone_Country
+------+ PhoneStatus
+------+ Email
+----+ (Container) Vertical
+------+ ID
+------+ Picture
+
++ (FormTab) HR
+--+ (Container) Horizontal
+----+ (Container) Vertical
+------+ FDN_Department
+------+ Title
+----+ (Container) Vertical
+------+ HireDate
+------+ EndDate
+
+=========================
+2. FORM FIELDS PROPERTIES
+=========================
+
+-------------------------
+FirstName
+-------------------------
+> Value expression          (SemQL)
+FirstName
+> Label > Floating Label    true
+> Label > Helper Text       As it appears on the photo ID provided by employee.
+
+-------------------------
+LastName
+-------------------------
+> Value expression          (SemQL)
+LastName
+> Label > Floating Label    true
+
+-------------------------
+Salutation
+-------------------------
+> Value expression          (SemQL)
+Salutation
+
+-------------------------
+Subsidiary
+-------------------------
+> Value expression          (SemQL)
+Subsidiary
+
+-------------------------
+IsContractor
+-------------------------
+> Value expression          (SemQL)
+IsContractor
+
+-------------------------
+Phone
+-------------------------
+> Value expression          (SemQL)
+Phone
+> Name  > Label             Phone (and country code)
+> Label > Floating Label    true
+
+-------------------------
+EnrichedPhone_Country
+-------------------------
+> Value expression          (SemQL)
+EnrichedPhone.Country
+> Name  > Label             Code
+> Label > Floating Label    true
+
+-------------------------
+PhoneStatus
+-------------------------
+> Value expression          (SemQL)
+case
+  when Phone is null then 'No phone.'
+  when Phone is not null
+    and EnrichedPhone.IsPossible is null then 'Phone not verified yet.'
+  else
+    EnrichedPhone.EnrichedPhone ||
+    case when EnrichedPhone.Country is not null
+      then ' • ' || EnrichedPhone.Country  end ||
+    case when EnrichedPhone.LineType is not null
+      then ' • ' || Initcap(Replace(EnrichedPhone.LineType, '_', ' ')) end ||
+    case when EnrichedPhone.Location is not null
+      then ' • ' || EnrichedPhone.Location end
+end
+> Label > Label Visible     false
+> Style > Text Color        md:grey
+> Style > Text Typography   caption
+
+-------------------------
+Email
+-------------------------
+> Value expression          (SemQL)
+Email
+> Label > Floating Label    true
+> Label > Helper Text       Note: email is mandatory for contractors.
+
+-------------------------
+ID
+-------------------------
+> Value expression          (SemQL)
+lpad(sem_to_char(ID), 6 , '0')
+> Name  > Label             Employee ID
+
+-------------------------
+Picture
+-------------------------
+> Value expression          (SemQL)
+Picture
+> Data  > Image Source      content
+> Format> Height            250
+
+-------------------------
+FDN_Department
+-------------------------
+> Value expression          (SemQL)
+FDN_Department
+> Style > Display Type      chip
+> Style > Disp. Avatar      true
+> Style > Disp. Sec. Text   true
+> Label > Floating Label    true
+
+-------------------------
+Title
+-------------------------
+> Value expression          (SemQL)
+Title
+> Label > Floating Label    true
+
+-------------------------
+HireDate
+-------------------------
+> Value expression          (SemQL)
+HireDate
+> Displa> Component Type    date
+
+-------------------------
+EndDate
+-------------------------
+> Value expression          (SemQL)
+EndDate
+> Displa> Component Type    date
+
+********************************************************************************

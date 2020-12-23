@@ -1,0 +1,196 @@
+********************************************************************************
+** Employee Browsing Form helper file
+** Semarchy xDM Tutorials
+** Copy and paste the SemQL Expressions and use them in the tutorial.
+** Copyright (c) 2018 Semarchy
+********************************************************************************
+
+=================
+1. FORM STRUCTURE
+=================
+
++ (FormTab) General (icon: images://mdi/account-circle.svg)
+--+ (Container) Horizontal
+----+ (Container) Vertical (Relative Width: 20)
+------+ Picture
+----+ (Container) Vertical
+------+ Name
+------+ Title
+------+ Subsidiary
+------+ FDN_Department
+------+ Contractor
+------+ Hired
+------+ Ended
+------+ ID
+
++ (FormTab) Contact (icon: images://mdi/cellphone-link.svg)
+--+ Phone
+--+ PhoneStatus
+--+ Email
+
+=========================
+2. FORM FIELDS PROPERTIES
+=========================
+-------------------------
+Picture
+-------------------------
+> Value expression          (SemQL)
+Picture
+> Displa> Component Type    Image
+> Data  > Fallback Image    images://default/folder-item-view-profile.png
+> Data  > Image Source      content
+> Format> Height            160
+> Label > Label Visible     false
+> Style > Image Resize Mode fill
+
+-------------------------
+Name
+-------------------------
+> Value expression          (SemQL)
+case
+	when Salutation is not null
+		then Salutation || ' '
+end ||
+FirstName || ' ' || LastName
+> Name  > Use Cust. Label   true
+> Name  > Label             Name of employee
+> Name  > Documentation     with salutations...
+> Label > Label Visible     false
+> Style > Text Typography   title
+
+-------------------------
+Title
+-------------------------
+> Value expression          (SemQL)
+Title
+> Name  > Use Cust. Label   true
+> Name  > Label             Title
+> Name  > Documentation     Employee title as it appears in the HR system
+> Label > Label Visible     false
+> Style > Text Typography   subhead
+
+-------------------------
+Subsidiary
+-------------------------
+> Value expression          (SemQL)
+Subsidiary
+> Name  > Use Cust. Label   true
+> Name  > Label             Subsidiary
+> Name  > Documentation     Subsidiary to which this employee reports
+> Label > Label Visible     false
+> Style > Text Typography   subhead
+
+-------------------------
+FDN_Department
+-------------------------
+> Value expression          (SemQL)
+FDN_Department
+> Name  > Use Cust. Label   true
+> Name  > Label             Department
+> Name  > Documentation     Department to which this employee reports.
+> Label > Label Visible     false
+> Style > Display Type      chip
+> Style > Display Avatar    true
+
+-------------------------
+Contractor
+-------------------------
+> Value expression          (SemQL)
+case when IsContractor = '1' then 'Contractor' else 'Employee' end
+> Name  > Use Cust. Label   true
+> Name  > Label             Contractor
+> Name  > Documentation     Indicates whether this person is employee or
+                            contractor.
+> Label > Label Visible     false
+> Style > Text Color        (SemQL)
+case
+	when IsContractor = '1' then 'md:orange'
+	else 'md:green'
+end
+
+-------------------------
+Hired
+-------------------------
+> Value expression          (SemQL)
+'Since ' || to_char(HireDate , 'DD-Mon-YYYY')
+> Name  > Use Cust. Label   true
+> Name  > Label             Hired
+> Name  > Documentation     Date at which the employeee or contractor was hired.
+> Label > Label Visible     false
+
+-------------------------
+Ended
+-------------------------
+> Value expression          (SemQL)
+'Ended ' || to_char(EndDate , 'DD-Mon-YYYY')
+> Name  > Use Cust. Label   true
+> Name  > Label             Ended
+> Name  > Documentation     Date of relationship termination.
+> Displa> Visible           (SemQL)
+EndDate is not null
+> Label > Label Visible     false
+> Style > Text Color        md:red
+
+-------------------------
+ID
+-------------------------
+> Value expression          (SemQL)
+lpad(sem_to_char(ID), 6 , '0')
+> Name  > Use Cust. Label   true
+> Name  > Label             Employee ID
+> Name  > Documentation     Padded with zeros for easier interpretation...
+> Label > Label Visible     false
+> Style > Text Color        md:grey
+> Style > Text Typography   caption
+
+-------------------------
+Phone
+-------------------------
+> Value expression          (SemQL)
+Phone
+> Label > Icon              images://mdi/cellphone.svg
+
+-------------------------
+PhoneStatus
+-------------------------
+> Value expression          (SemQL)
+case
+  when Phone is null then 'No phone.'
+  when Phone is not null
+    and EnrichedPhone.IsPossible is null then 'Phone not verified yet.'
+  else
+    EnrichedPhone.EnrichedPhone ||
+    case when EnrichedPhone.Country is not null
+      then ' • ' || EnrichedPhone.Country  end ||
+    case when EnrichedPhone.LineType is not null
+      then ' • ' || Initcap(Replace(EnrichedPhone.LineType, '_', ' ')) end ||
+    case when EnrichedPhone.Location is not null
+      then ' • ' || EnrichedPhone.Location end
+end
+> Name  > Use Cust. Label   true
+> Name  > Label             Phone Status
+> Name  > Documentation     Description of the validity of a phone number
+> Label > Label Visible     false
+> Style > Text Color        (SemQL)
+case
+	when EnrichedPhone.IsPossible = '1' then 'md:grey'
+	when EnrichedPhone.IsPossible is null then 'md:orange'
+	else 'md:red'
+end
+> Style > Text Typography   caption
+
+-------------------------
+Email
+-------------------------
+> Value expression          (SemQL)
+'mailto:' || Email
+> Name  > Use Cust. Label   true
+> Name  > Label             Email
+> Name  > Documentation     Hyperlink to email
+> Displa> Component Type    Hyperlink
+> Data  > Display Text      (SemQL)
+Email
+> Data  > Link Source       url
+> Label > Icon              images://mdi/email.svg
+
+********************************************************************************
