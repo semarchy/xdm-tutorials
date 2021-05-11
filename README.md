@@ -20,7 +20,7 @@ Semarchy xDM is the [Intelligent Data Hub](https://www.semarchy.com/intelligent/
 * Data Quality
 * Deduplication & Match/Merge
 * Collaborative data authoring workflows
-`test code`
+
 # Requirements
 To complete these tutorials you need a modern computer, access to the internet, and a willingness to learn.
 
