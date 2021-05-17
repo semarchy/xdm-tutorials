@@ -44,7 +44,7 @@ CREATE USER   semarchy_stg WITH PASSWORD 'semarchy_stg';
 CREATE SCHEMA semarchy_stg AUTHORIZATION semarchy_stg;
 GRANT USAGE ON SCHEMA semarchy_stg TO public;
 
-/* Give all users read access to all the tables (and views) in semarchy_repository */
+/* Give all users read access to all the tables (and views) in semarchy_repository - NOT SUITABLE FOR A PRODUCTION ENVIRONMENT */
 ALTER DEFAULT PRIVILEGES FOR USER semarchy_repository IN SCHEMA semarchy_repository GRANT SELECT ON TABLES TO public;
 
 /* Setting the search path to include the repository */
