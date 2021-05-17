@@ -20,6 +20,10 @@ CREATE USER   semarchy_repository WITH PASSWORD 'semarchy_repository';
 CREATE SCHEMA semarchy_repository AUTHORIZATION semarchy_repository;
 GRANT USAGE ON SCHEMA semarchy_repository TO public;
 
+/* Create the repository read-only user */
+CREATE USER semarchy_repository_ro WITH PASSWORD 'semarchy_repository_ro';
+GRANT CONNECT ON DATABASE postgres to semarchy_repository_ro;
+
 CREATE USER   semarchy_product_retail_mdm WITH PASSWORD 'semarchy_product_retail_mdm';
 CREATE SCHEMA semarchy_product_retail_mdm AUTHORIZATION semarchy_product_retail_mdm;
 GRANT USAGE ON SCHEMA semarchy_product_retail_mdm TO public;
@@ -43,10 +47,15 @@ GRANT USAGE ON SCHEMA semarchy_stg TO public;
 /* Give all users read access to all the tables (and views) in semarchy_repository */
 ALTER DEFAULT PRIVILEGES FOR USER semarchy_repository IN SCHEMA semarchy_repository GRANT SELECT ON TABLES TO public;
 
+/* Setting the search path to include the repository */
+ALTER ROLE semarchy_repository_ro SET SEARCH_PATH TO "$user", semarchy_repository,public,extensions;
+
 /* Cleanup scripts to start fresh */
 /*
   DROP SCHEMA semarchy_repository CASCADE;
   DROP USER   semarchy_repository;
+  DROP owned by semarchy_repository_ro;
+  DROP user semarchy_repository_ro;
  
   DROP SCHEMA semarchy_product_retail_mdm CASCADE;
   DROP USER   semarchy_product_retail_mdm;
@@ -64,3 +73,4 @@ ALTER DEFAULT PRIVILEGES FOR USER semarchy_repository IN SCHEMA semarchy_reposit
   DROP USER   semarchy_stg;
 */
 /******************************************************************************/
+
