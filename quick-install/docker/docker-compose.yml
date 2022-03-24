@@ -1,0 +1,60 @@
+version: '3.8'
+
+networks:
+  semarchy-net:
+    driver: bridge
+
+services:
+  semarchy-appserver:
+    image: semarchy/xdm:latest
+    ports:
+      - '8080:8080'
+    depends_on:
+      semarchy-database:
+        condition: service_healthy
+    networks:
+      - semarchy-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://semarchy-appserver:8080/semarchy/api/rest/probes/started"]
+    environment:
+      # Repository connection, pointing to the semarchy-database service.
+      # Reconfigure this connection to use a separate database.
+      - XDM_REPOSITORY_DRIVER=org.postgresql.Driver
+      - XDM_REPOSITORY_URL=jdbc:postgresql://semarchy-database:5432/postgres
+      - XDM_REPOSITORY_USERNAME=semarchy_repository
+      - XDM_REPOSITORY_PASSWORD=semarchy_repository
+      # Repository read-only datasource credentials
+      - XDM_REPOSITORY_READONLY_USERNAME=semarchy_repository_ro
+      - XDM_REPOSITORY_READONLY_PASSWORD=semarchy_repository_ro
+      # Setup Token
+      - SEMARCHY_SETUP_TOKEN=mySecretValue
+      # Add other startup configuration properties below. For example, secrets management configuration
+      # See http://semarchy.com/doc/semarchy-xdm/xdm/5.3/Install/startup-configuration.html
+    volumes:
+      # Volume for additional JAR libraries
+      - ./additional-libraries:/usr/local/tomcat/additional-libraries
+
+  # Semarchy xDM Database tier.
+  # Note that the service (semarchy-database) name and port should be used in the XDM_REPOSITORY_URL.
+  semarchy-database:
+    image: postgres:9.6
+    user: postgres
+    ports:
+      - '5432:5432'
+    networks:
+      - semarchy-net
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5s
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - ./create-schemas.sql:/docker-entrypoint-initdb.d/create-schemas.sql
+      # (Optional) Volumes persisting the database container data
+      - pgdata:/var/lib/postgresql/data
+      - pgconf:/etc/postgresql
+      - pglog:/var/log/postgresql
