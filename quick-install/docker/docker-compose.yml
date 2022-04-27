@@ -8,7 +8,7 @@ services:
   semarchy-appserver:
     image: semarchy/xdm:latest
     ports:
-      - '8080:8080'
+      - '8088:8080'
     depends_on:
       semarchy-database:
         condition: service_healthy
