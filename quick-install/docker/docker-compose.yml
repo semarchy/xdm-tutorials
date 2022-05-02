@@ -15,7 +15,7 @@ services:
     networks:
       - semarchy-net
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://semarchy-appserver:8080/semarchy/api/rest/probes/started"]
+      test: ["CMD", "curl", "-f", "http://semarchy-appserver:8088/semarchy/api/rest/probes/started"]
     environment:
       # Repository connection, pointing to the semarchy-database service.
       # Reconfigure this connection to use a separate database.
