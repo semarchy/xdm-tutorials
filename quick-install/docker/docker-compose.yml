@@ -15,7 +15,7 @@ services:
     networks:
       - semarchy-net
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://semarchy-appserver:8088/semarchy/api/rest/probes/started"]
+      test: [ "CMD", "./semarchy_healthcheck.sh" ]
     environment:
       # Repository connection, pointing to the semarchy-database service.
       # Reconfigure this connection to use a separate database.
@@ -28,6 +28,10 @@ services:
       - XDM_REPOSITORY_READONLY_PASSWORD=semarchy_repository_ro
       # Setup Token
       - SEMARCHY_SETUP_TOKEN=mySecretValue
+      # (Optional) Customizable context path
+      #   - if not present: http://localhost:8088/semarchy
+      #   - if blank value: http://localhost:8088/)
+      - CONTEXT_PATH=semarchy
       # Add other startup configuration properties below. For example, secrets management configuration
       # See http://semarchy.com/doc/semarchy-xdm/xdm/5.3/Install/startup-configuration.html
     volumes:
@@ -58,7 +62,7 @@ services:
       - pgdata:/var/lib/postgresql/data
       - pgconf:/etc/postgresql
       - pglog:/var/log/postgresql
-      
+
 volumes:
   pgdata:
     driver: local
