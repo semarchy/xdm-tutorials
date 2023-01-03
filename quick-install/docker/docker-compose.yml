@@ -30,8 +30,9 @@ services:
       - SEMARCHY_SETUP_TOKEN=mySecretValue
       # (Optional) Customizable context path
       #   - if not present: http://localhost:8088/semarchy
-      #   - if blank value: http://localhost:8088/)
-      - CONTEXT_PATH=semarchy
+      #   - if blank value: http://localhost:8088/
+      #   - if present: it must start with a /
+      - CONTEXT_PATH=/semarchy
       # Add other startup configuration properties below. For example, secrets management configuration
       # See http://semarchy.com/doc/semarchy-xdm/xdm/5.3/Install/startup-configuration.html
     volumes:
