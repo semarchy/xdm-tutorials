@@ -42,7 +42,7 @@ services:
   # Semarchy xDM Database tier.
   # Note that the service (semarchy-database) name and port should be used in the XDM_REPOSITORY_URL.
   semarchy-database:
-    image: postgres:9.6
+    image: postgres:14
     user: postgres
     ports:
       - '5432:5432'
