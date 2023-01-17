@@ -6,7 +6,7 @@ networks:
 
 services:
   semarchy-appserver:
-    image: semarchy/xdm:latest
+    image: semarchy/xdm:2023.1.0
     ports:
       - '8088:8080'
     depends_on:
