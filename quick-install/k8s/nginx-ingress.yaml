@@ -1,0 +1,37 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: semarchyxdm
+  namespace: semarchy
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: vault-issuer
+    cert-manager.io/common-name: semarchyxdm.yourcompany.com
+    ingress.kubernetes.io/proxy-body-size: "500m"
+    nginx.org/proxy-connect-timeout: "30s"
+    nginx.org/proxy-read-timeout: "20s"
+    nginx.org/client-max-body-size: "500m"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "36000"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "36000"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "36000"
+    nginx.ingress.kubernetes.io/server-snippet: "keepalive_timeout 36000s;client_body_timeout 36000s;client_header_timeout 36000s;"
+    # necessary for uploading XML files greater than 1 megabyte in size
+    nginx.ingress.kubernetes.io/proxy-body-size: "500m"
+spec:
+  rules:
+  - host: semarchyxdm.yourcompany.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+           name: semarchyxdm
+           port: 
+             number: 8080
+  tls:
+  - hosts:
+    - semarchyxdm.yourcompany.com
+    secretName: semarchyxdmingress
+
