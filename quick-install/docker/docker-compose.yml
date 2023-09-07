@@ -40,12 +40,13 @@ services:
       - ./additional-libraries:/usr/local/tomcat/additional-libraries
 
   # Semarchy xDM Database tier.
-  # Note that the service (semarchy-database) name and port should be used in the XDM_REPOSITORY_URL.
+  # Note that the service (semarchy-database) name and port 5432 should be used in the XDM_REPOSITORY_URL.
   semarchy-database:
     image: postgres:14
     user: postgres
-    ports:
-      - '5432:5432'
+    # To access the database from outside the container, a port mapping (<external port>|<internal port>) must be added such as:
+    # ports:
+    #  - '15432:5432'
     networks:
       - semarchy-net
     healthcheck:
