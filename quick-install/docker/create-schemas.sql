@@ -41,7 +41,3 @@ GRANT USAGE ON SCHEMA semarchy_emp_tutorial TO public;
 CREATE USER   semarchy_b2b_tutorial WITH PASSWORD 'semarchy_b2b_tutorial';
 CREATE SCHEMA semarchy_b2b_tutorial AUTHORIZATION semarchy_b2b_tutorial;
 GRANT USAGE ON SCHEMA semarchy_b2b_tutorial TO public;
-
-CREATE USER   semarchy_stg WITH PASSWORD 'semarchy_stg';
-CREATE SCHEMA semarchy_stg AUTHORIZATION semarchy_stg;
-GRANT USAGE ON SCHEMA semarchy_stg TO public;
