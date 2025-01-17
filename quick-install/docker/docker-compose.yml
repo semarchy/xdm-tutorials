@@ -1,5 +1,3 @@
-version: '3.8'
-
 networks:
   semarchy-net:
     driver: bridge
@@ -15,7 +13,11 @@ services:
     networks:
       - semarchy-net
     healthcheck:
-      test: [ "CMD", "./semarchy_healthcheck.sh" ]
+      test: [ "CMD-SHELL", "wget -qO- http://localhost:8080$${CONTEXT_PATH}/api/rest/probes/started" ]
+      start_period: 1m
+      interval: 5s
+      timeout: 5s
+      retries: 5
     environment:
       # Repository connection, pointing to the semarchy-database service.
       # Reconfigure this connection to use a separate database.
