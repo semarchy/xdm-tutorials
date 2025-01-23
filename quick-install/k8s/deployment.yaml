@@ -1,0 +1,60 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: semarchyxdm
+  labels:
+    app: semarchyxdm
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: semarchyxdm
+  template:
+    metadata:
+      labels:
+        app: semarchyxdm
+    spec:
+      containers:
+      - image: semarchy/xdm:5.3.10
+        imagePullPolicy: Always
+        name: semarchyxdm
+        ports:
+        - containerPort: 8080
+        resources: {}
+        env:
+          - name: XDM_REPOSITORY_DRIVER
+            value: "org.postgresql.Driver"
+          - name: XDM_REPOSITORY_URL
+            valueFrom:
+              secretKeyRef:
+                name: semarchysecrets
+                key: xdm_repository_url
+          - name: XDM_REPOSITORY_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: semarchysecrets 
+                key: xdm_repository_username
+          - name: XDM_REPOSITORY_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: semarchysecrets
+                key: xdm_repository_password
+          - name: XDM_REPOSITORY_READONLY_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: semarchysecrets
+                key: xdm_repository_readonly_username
+          - name: XDM_REPOSITORY_READONLY_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: semarchysecrets
+                key: xdm_repository_readonly_password
+          - name: SEMARCHY_SETUP_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: semarchysecrets
+                key: semarchy_setup_token
+      restartPolicy: Always
+status: {}
